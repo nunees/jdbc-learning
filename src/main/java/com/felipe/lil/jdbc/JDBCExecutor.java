@@ -12,11 +12,17 @@ public class JDBCExecutor {
 
         try{
             Connection connection = dcm.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM CUSTOMER");
-            while(resultSet.next()){
-                System.out.println(resultSet.getInt(1));
-            }
+            CustomerDAO customerDAO = new CustomerDAO(connection);
+            Customer customer = new Customer();
+            customer.setFirstName("Amanda");
+            customer.setLastName("Silva");
+            customer.setEmail("amandavieira.i@hotmail.com");
+            customer.setPhone("(555) 555-5555");
+            customer.setAddress("1234 Main st");
+            customer.setCity("Sao Paulo");
+            customer.setState("SP");
+            customer.setZipCode("2222");
+            customerDAO.create(customer);
         }catch (SQLException e){
             e.printStackTrace();
         }
