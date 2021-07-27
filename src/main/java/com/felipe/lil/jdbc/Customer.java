@@ -18,6 +18,10 @@ public class Customer implements DataTransferObject {
         return 0;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
