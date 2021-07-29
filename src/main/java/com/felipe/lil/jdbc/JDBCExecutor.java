@@ -14,12 +14,19 @@ public class JDBCExecutor {
             Connection connection = dcm.getConnection();
             CustomerDAO customerDAO = new CustomerDAO(connection);
 
-            Customer customer = customerDAO.findById(10000);
-            System.out.println(customer.getFirstName() + " " + customer.getLastName() + " " + customer.getEmail());
+            Customer customer = customerDAO.findById(1001);
+            System.out.println(customer.getId());
 
-            customer.setEmail("gwashington@wh.gov");
-            customer = customerDAO.update(customer);
-            System.out.println(customer.getFirstName() + " " + customer.getLastName() + " " + customer.getEmail());
+            customerDAO.delete(customer.getId());
+            System.out.println("The user " + customer.getLastName() + " was deleted!");
+
+//
+//            Customer customer = customerDAO.findById(10000);
+//            System.out.println(customer.getFirstName() + " " + customer.getLastName() + " " + customer.getEmail());
+//
+//            customer.setEmail("gwashington@wh.gov");
+//            customer = customerDAO.update(customer);
+//            System.out.println(customer.getFirstName() + " " + customer.getLastName() + " " + customer.getEmail());
 
 //            Customer customer = customerDAO.findById(1000);
 //            System.out.println(customer.getFirstName() + " " + customer.getLastName());
