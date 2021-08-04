@@ -14,11 +14,17 @@ public class JDBCExecutor {
             Connection connection = dcm.getConnection();
             CustomerDAO customerDAO = new CustomerDAO(connection);
 
-            Customer customer = customerDAO.findById(1001);
-            System.out.println(customer.getId());
+            OrderDAO orderDAO = new OrderDAO(connection);
+            Order order = orderDAO.findById(1000);
+            System.out.println(order);
 
-            customerDAO.delete(customer.getId());
-            System.out.println("The user " + customer.getLastName() + " was deleted!");
+
+
+//            Customer customer = customerDAO.findById(1001);
+//            System.out.println(customer.getId());
+//
+//            customerDAO.delete(customer.getId());
+//            System.out.println("The user " + customer.getLastName() + " was deleted!");
 
 //
 //            Customer customer = customerDAO.findById(10000);
